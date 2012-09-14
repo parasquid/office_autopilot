@@ -15,6 +15,12 @@ module OfficeAutopilot
         response = request(:post, CONTACTS_ENDPOINT, :body => {'reqType' => 'add', 'return_id' => '1', 'data' => xml})
         parse_contacts_xml(response)[0]
       end
+      
+      def contacts_update(options)
+        xml = xml_for_contact(options)
+        response = request(:post, CONTACTS_ENDPOINT, :body => {'reqType' => 'update', 'return_id' => '1', 'data' => xml})
+        parse_contacts_xml(response)[0]
+      end
 
       def contacts_pull_tag
         response = request(:post, CONTACTS_ENDPOINT, :body => {'reqType' => 'pull_tag'})
@@ -108,13 +114,16 @@ module OfficeAutopilot
         attrs = {}
         id = options.delete('id')
         attrs[:id] = id if id
-
+        action = options.delete('action')
+        
         xml = Builder::XmlMarkup.new
         xml.contact(attrs) do
           options.each_key do |group_tag|
             xml.Group_Tag(:name => group_tag) do
               options[group_tag].each do |field, value|
-                xml.field(value, :name => field)
+                xml_params = {:name => field}
+                xml_params[:action] = action if !action.blank?
+                xml.field(value, xml_params)
               end
             end
           end
