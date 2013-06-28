@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe OfficeAutopilot::Client do
+describe OfficeAutopilotApi::Client do
 
   before do
     @api_id = 'foo'
     @api_key = 'bar'
-    @client = OfficeAutopilot::Client.new(:api_id => @api_id, :api_key => @api_key)
+    @client = OfficeAutopilotApi::Client.new(:api_id => @api_id, :api_key => @api_key)
   end
 
   describe "#new" do
@@ -17,20 +17,20 @@ describe OfficeAutopilot::Client do
 
     it "raises an ArgumentError when :api_id is not provided" do
       expect {
-        OfficeAutopilot::Client.new(:api_key => 'foo')
+        OfficeAutopilotApi::Client.new(:api_key => 'foo')
       }.to raise_error(ArgumentError)
     end
 
     it "raises an ArgumentError when :api_key is not provided" do
       expect {
-        OfficeAutopilot::Client.new(:api_id => 'foo')
+        OfficeAutopilotApi::Client.new(:api_id => 'foo')
       }.to raise_error(ArgumentError)
     end
   end
 
   describe "#request" do
     it "makes a HTTP request" do
-       pending "can't seem to stub out OfficeAutopilot::Request.post"
+       pending "can't seem to stub out OfficeAutopilotApi::Request.post"
     end
   end
 
@@ -43,10 +43,10 @@ describe OfficeAutopilot::Client do
     end
 
     context "invalid XML error" do
-      it "raises OfficeAutopilot::XmlError" do
+      it "raises OfficeAutopilotApi::XmlError" do
         expect {
             @client.handle_response( test_data('invalid_xml_error_response.xml') )
-        }.to raise_error(OfficeAutopilot::XmlError)
+        }.to raise_error(OfficeAutopilotApi::XmlError)
       end
     end
   end

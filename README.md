@@ -11,7 +11,7 @@ Usage Examples
     require "rubygems"
     require "office_autopilot"
 
-    client = OfficeAutopilot::Client.new(:api_id => 'xxx', :api_key => 'yyy')
+    client = OfficeAutopilotApi::Client.new(:api_id => 'xxx', :api_key => 'yyy')
 
     # Search Contacts
     puts client.contacts_search(:field => 'E-Mail', :op => 'e', :value => 'prashant@example.com')

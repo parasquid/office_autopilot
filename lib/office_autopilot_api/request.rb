@@ -1,6 +1,6 @@
 require 'httparty'
 
-module OfficeAutopilot
+module OfficeAutopilotApi
   class Request
 
     include HTTParty

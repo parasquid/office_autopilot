@@ -1,4 +1,4 @@
-require 'office_autopilot'
+require 'office_autopilot_api'
 
 require 'cgi'
 require 'webmock/rspec'

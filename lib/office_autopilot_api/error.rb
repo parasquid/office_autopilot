@@ -1,4 +1,4 @@
-module OfficeAutopilot
+module OfficeAutopilotApi
   # Custom error class for rescuing from all OfficeAutopilot errors
   class Error < StandardError; end
 

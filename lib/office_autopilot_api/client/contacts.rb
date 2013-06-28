@@ -1,4 +1,4 @@
-module OfficeAutopilot
+module OfficeAutopilotApi
   class Client
     module Contacts
 
