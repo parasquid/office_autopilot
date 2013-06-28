@@ -4,12 +4,12 @@ A Ruby wrapper for the OfficeAutopilot API
 
 Installation
 ------------
-    gem install office_autopilot
+    gem install office_autopilot_api
 
 Usage Examples
 --------------
     require "rubygems"
-    require "office_autopilot"
+    require "office_autopilot_api"
 
     client = OfficeAutopilotApi::Client.new(:api_id => 'xxx', :api_key => 'yyy')
 
@@ -68,4 +68,4 @@ Submitting a Pull Request
 Copyright
 ---------
 Copyright (c) 2011 Prashant Nadarajan.
-See [LICENSE](https://github.com/prashantrajan/office_autopilot/blob/master/LICENSE) for details.
+See [LICENSE](https://github.com/parasquid/office_autopilot/blob/master/MIT_LICENSE) for details.
