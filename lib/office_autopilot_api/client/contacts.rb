@@ -122,7 +122,7 @@ module OfficeAutopilotApi
             xml.Group_Tag(:name => group_tag) do
               options[group_tag].each do |field, value|
                 xml_params = {:name => field}
-                xml_params[:action] = action if !action.blank?
+                xml_params[:action] = action unless action.nil? || action.blank?
                 xml.field(value, xml_params)
               end
             end
