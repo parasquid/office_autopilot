@@ -40,6 +40,8 @@ module OfficeAutopilotApi
     def handle_response(response)
       xml = Nokogiri::XML(response)
 
+      return nil if xml.at_css('result').nil?
+
       if xml.at_css('result').content =~ /failure/i
         raise OfficeAutopilotApi::XmlError if xml.at_css('result error').content =~ /Invalid XML/i
       end
